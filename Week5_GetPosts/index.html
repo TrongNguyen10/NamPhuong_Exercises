@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <title>Posts Pagination</title>
   <style>
     h1{
@@ -44,10 +45,9 @@
     <h1>Posts</h1>
     <div id="posts"></div>
     <div id="pagination">
-      <button id="prev">
-        < Previous</button>
+      <button id="prev"><i class="fa-solid fa-angle-left"></i> Previous</button>
           <span id="page-number">1</span>
-          <button id="next">Next ></button>
+          <button id="next">Next <i class="fa-solid fa-angle-right"></i></button>
     </div>
   </div>
   <script type="module" src="/src/main.js"></script>
