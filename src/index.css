@@ -66,3 +66,27 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* Posts CSS */
+h1{
+  text-align: center;
+}
+.post-list {
+  margin: 0 10% 30px;
+}
+.post-list div{
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+.post-list div:last-child{
+  border: none;
+}
+.post-list h2 {
+  color: rgb(210, 210, 219)
+}
+.pagination {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.pagination span {
+  margin: 0 20px;
+}
