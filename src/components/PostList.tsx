@@ -18,13 +18,14 @@ const PostList: React.FC = () => {
     const handlePrevPage = () => {
         setCurrentPage((prevPage) => prevPage - 1);
     };
-    const turnOnLightMode = () => {
-        document.querySelector('#root')?.classList.add('light')
-    }
-    const turnOffLightMode = () => {
-        document.querySelector('#root')?.classList.remove('light')
-    }
 
+    const switchMode = () => {
+        let $ = document.querySelector.bind(document)
+        $('#root')?.classList.toggle('light')
+        $('.header button i')?.classList.toggle('fa-moon')
+        let mode = $('.header p')
+        mode.textContent = mode.textContent == 'Light Mode' ? 'Dark Mode' : 'Light Mode'
+    }
     const totalPages = Math.ceil(posts.length / postsPerPage);
     const offset = currentPage * postsPerPage;
     const currentPosts = posts.slice(offset, offset + postsPerPage);
@@ -32,10 +33,8 @@ const PostList: React.FC = () => {
         <div className='container'>
             <div className='header'>
                 <h1>Posts</h1>
-                <div className='header-btn'>
-                    <button onClick={turnOnLightMode}><i className="fa-regular fa-sun"></i></button>
-                    <button onClick={turnOffLightMode}><i className="fa-regular fa-moon"></i></button>
-                </div>
+                <p style={{marginRight: '10px'}}>Light Mode</p>
+                <button onClick={switchMode}><i className="fa-regular fa-sun"></i></button>
             </div>
             <div className='post-list'>
                 {/* Hiển thị danh sách bài viết */}

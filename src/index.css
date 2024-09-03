@@ -74,7 +74,6 @@ button:focus-visible {
 button {
   background-color: #242424;
 }
-
 .header {
   display: flex;
   align-items: center;
@@ -82,27 +81,22 @@ button {
 h1{
   margin: auto;
 }
-.header-btn button{
+.header button{
   padding: 0;
   height: 3em;
   width: 3em;
   border-radius: 50%;
 }
-.header-btn button:first-child {
-  margin-right: 5px;
-}
-.post-list {
-  margin-bottom: 30px;
-}
 .post-list div{
   border-bottom: 1px solid rgb(255, 255, 255);
 }
+.light .post-list div:last-child,
 .post-list div:last-child{
   border: none;
 }
 .pagination {
   text-align: center;
-  margin-bottom: 30px;
+  margin: 30px 0;
 }
 .pagination span {
   margin: 0 20px;
