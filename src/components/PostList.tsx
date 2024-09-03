@@ -18,13 +18,25 @@ const PostList: React.FC = () => {
     const handlePrevPage = () => {
         setCurrentPage((prevPage) => prevPage - 1);
     };
+    const turnOnLightMode = () => {
+        document.querySelector('#root')?.classList.add('light')
+    }
+    const turnOffLightMode = () => {
+        document.querySelector('#root')?.classList.remove('light')
+    }
 
     const totalPages = Math.ceil(posts.length / postsPerPage);
     const offset = currentPage * postsPerPage;
     const currentPosts = posts.slice(offset, offset + postsPerPage);
     return (
-        <div>
-            <h1>Posts</h1>
+        <div className='container'>
+            <div className='header'>
+                <h1>Posts</h1>
+                <div className='header-btn'>
+                    <button onClick={turnOnLightMode}><i className="fa-regular fa-sun"></i></button>
+                    <button onClick={turnOffLightMode}><i className="fa-regular fa-moon"></i></button>
+                </div>
+            </div>
             <div className='post-list'>
                 {/* Hiển thị danh sách bài viết */}
                 {currentPosts.map((post) => (

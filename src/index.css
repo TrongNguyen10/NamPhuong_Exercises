@@ -68,11 +68,31 @@ button:focus-visible {
 }
 
 /* Posts CSS */
+.container {
+  padding: 0 10%;
+}
+button {
+  background-color: #242424;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
 h1{
-  text-align: center;
+  margin: auto;
+}
+.header-btn button{
+  padding: 0;
+  height: 3em;
+  width: 3em;
+  border-radius: 50%;
+}
+.header-btn button:first-child {
+  margin-right: 5px;
 }
 .post-list {
-  margin: 0 10% 30px;
+  margin-bottom: 30px;
 }
 .post-list div{
   border-bottom: 1px solid rgb(255, 255, 255);
@@ -80,13 +100,22 @@ h1{
 .post-list div:last-child{
   border: none;
 }
-.post-list h2 {
-  color: rgb(210, 210, 219)
-}
 .pagination {
   text-align: center;
   margin-bottom: 30px;
 }
 .pagination span {
   margin: 0 20px;
+}
+.light,
+.light button {
+  background-color: #fff;
+  color: #213547;  
+}
+.light .post-list div{
+  border-bottom: 1px solid #213547;
+}
+button:hover{
+  background-color: rgb(245, 245, 245);
+  color: #213547;  
 }
