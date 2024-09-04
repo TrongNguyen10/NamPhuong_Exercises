@@ -79,7 +79,7 @@ h1{
   margin: auto;
 }
 button {
-  background-color: #242424;
+  background-color: transparent;
 }
 .header label {
   padding-right: 5px; 
@@ -107,9 +107,11 @@ button {
 .pagination span {
   margin: 0 20px;
 }
-.light,
-.light button {
+.light {
   background-color: #fff;
+  color: #213547;  
+}
+.light button {
   color: #213547;  
 }
 .light .post-list div{
