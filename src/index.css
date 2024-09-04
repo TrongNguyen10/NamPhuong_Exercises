@@ -71,9 +71,6 @@ button:focus-visible {
 .container {
   padding: 0 10%;
 }
-button {
-  background-color: #242424;
-}
 .header {
   display: flex;
   align-items: center;
@@ -81,7 +78,14 @@ button {
 h1{
   margin: auto;
 }
-.header button{
+button {
+  background-color: #242424;
+}
+.header label {
+  padding-right: 5px; 
+  cursor: pointer;
+}
+#switch-btn {
   padding: 0;
   height: 3em;
   width: 3em;
@@ -95,6 +99,8 @@ h1{
   border: none;
 }
 .pagination {
+  position: sticky;
+  bottom: 0;
   text-align: center;
   margin: 30px 0;
 }

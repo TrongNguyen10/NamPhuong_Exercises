@@ -22,8 +22,8 @@ const PostList: React.FC = () => {
     const switchMode = () => {
         let $ = document.querySelector.bind(document)
         $('#root')?.classList.toggle('light')
-        $('.header button i')?.classList.toggle('fa-moon')
-        let mode = $('.header p')
+        $('#switch-btn i')?.classList.toggle('fa-moon')
+        let mode = $('.header label')
         mode.textContent = mode.textContent == 'Light Mode' ? 'Dark Mode' : 'Light Mode'
     }
     const totalPages = Math.ceil(posts.length / postsPerPage);
@@ -33,8 +33,8 @@ const PostList: React.FC = () => {
         <div className='container'>
             <div className='header'>
                 <h1>Posts</h1>
-                <p style={{marginRight: '10px'}}>Light Mode</p>
-                <button onClick={switchMode}><i className="fa-regular fa-sun"></i></button>
+                <label htmlFor='switch-btn'>Light Mode</label>
+                <button id='switch-btn' onClick={switchMode}><i className="fa-regular fa-sun"></i></button>
             </div>
             <div className='post-list'>
                 {/* Hiển thị danh sách bài viết */}
