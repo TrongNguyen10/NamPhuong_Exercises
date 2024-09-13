@@ -1,3 +1,6 @@
+# To run Project
+The node_modules folder has been ignored due to its size and long pushing time. To test run the project, open github's codespace terminal and run the "npm run dev" command or clone the project and install node_modules .
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
