@@ -68,56 +68,18 @@ button:focus-visible {
 }
 
 /* Posts CSS */
-.container {
-  padding: 0 10%;
+#app {
+  padding: 0 10% 30px;
 }
-.header {
-  display: flex;
-  align-items: center;
-}
-h1{
-  margin: auto;
-}
-button {
-  background-color: transparent;
-}
-.header label {
-  padding-right: 5px; 
-  cursor: pointer;
-}
-#switch-btn {
-  padding: 0;
-  height: 3em;
-  width: 3em;
-  border-radius: 50%;
-}
-.post-list div{
-  border-bottom: 1px solid rgb(255, 255, 255);
-}
-.light .post-list div:last-child,
-.post-list div:last-child{
-  border: none;
-}
-.pagination {
-  position: sticky;
-  bottom: 0;
+h1, #pagination {
   text-align: center;
-  margin: 30px 0;
 }
-.pagination span {
+#pagination {
+  margin-top: 30px;
+}
+#page-number {
   margin: 0 15px;
 }
-.light {
-  background-color: #fff;
-  color: #213547;  
-}
-.light button {
-  color: #213547;  
-}
-.light .post-list div{
-  border-bottom: 1px solid #213547;
-}
-button:hover{
-  background-color: rgb(245, 245, 245);
-  color: #213547;  
+.post:not(.post:last-child) {
+  border-bottom: 1px solid #fff;
 }

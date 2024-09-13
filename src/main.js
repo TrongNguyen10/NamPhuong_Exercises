@@ -38,6 +38,9 @@ prevButton.addEventListener('click', () => {
     if (currentPage > 1) {
         currentPage--;
         updatePosts();
+        nextButton.disabled = false;
+    }else {
+        prevButton.disabled = true;
     }
 });
 
@@ -45,6 +48,9 @@ nextButton.addEventListener('click', () => {
     if (currentPage < totalPage) {
         currentPage++;
         updatePosts();
+        prevButton.disabled = false;
+    }else {
+        nextButton.disabled = true;
     }
 });
 
