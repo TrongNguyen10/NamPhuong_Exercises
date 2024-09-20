@@ -1,5 +1,5 @@
 # To run Project
-The node_modules folder has been ignored due to its size and long pushing time. To test run the project, open github's codespace terminal and run the "npm run dev" command or clone the project and install node_modules .
+The node_modules folder has been ignored due to its size and long pushing time. To test run the project, open github's codespace terminal and run the "npm run dev" command or clone the project and install node_modules . *Note: run the json-server file first .
 
 # React + TypeScript + Vite
 
