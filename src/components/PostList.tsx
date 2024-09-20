@@ -4,7 +4,7 @@
 //     fetchPosts().then((data) => setPosts(data));
 // }, []);
 import axios from 'axios'
-import { fetchPosts, postsAPI } from '../api'; // Import hooks from api
+import { fetchPosts, postsAPI } from '../api';
 import { useQuery, useMutation } from '@tanstack/react-query'
 import React, { useState } from 'react';
 
@@ -99,7 +99,7 @@ const PostList: React.FC = () => {
     }
     //#endregion
 
-    //#region Open edit form when click create or edit 
+    //#region Open update form when click create or edit 
     const openCreateBox = () => {
         initialQueryElements()
         modalLayout?.setAttribute('style', 'display: flex')
