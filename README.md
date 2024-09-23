@@ -1,5 +1,11 @@
 # To run Project
-The node_modules folder has been ignored due to its size and long pushing time. To test run the project, open github's codespace terminal and run the "npm run dev" command or clone the project and install node_modules . *Note: run the json-server file first .
+```
+git clone -b posts-vite-react-ts --single-branch https://github.com/TrongNguyen10/NamPhuong_Exercises.git
+npm install
+cd json-server
+npx json-server posts.json
+npm run dev
+```
 
 # React + TypeScript + Vite
 
