@@ -1,11 +1,11 @@
 // src/App.tsx
 import React from 'react';
-import PostList from './components/PostList';
+import PostsList from './components/PostsList_mui';
 
 const App: React.FC = () => {
   return (
     <div>
-      <PostList />
+      <PostsList />
     </div>
   );
 };

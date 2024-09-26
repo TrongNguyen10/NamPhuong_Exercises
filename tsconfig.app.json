@@ -17,8 +17,6 @@
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
-    // "allowSyntheticDefaultImports": true,
-    // "esModuleInterop": true,
 
     /* Linting */
     "strict": true,

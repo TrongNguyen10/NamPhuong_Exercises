@@ -4,11 +4,12 @@
 //     fetchPosts().then((data) => setPosts(data));
 // }, []);
 import axios from 'axios'
-import { fetchPosts, postsAPI } from '../api';
+import { postsAPI } from '../api';
 import { useQuery, useMutation } from '@tanstack/react-query'
 import React, { useState } from 'react';
 
 const PostList: React.FC = () => {
+
     const [currentPage, setCurrentPage] = useState(0); // 0-based index
     const postsPerPage = 10;
 
@@ -28,14 +29,26 @@ const PostList: React.FC = () => {
 
     //#region get api useQuery and update post useMutation
 
-    const query = useQuery({ queryKey: ['getPosts'], queryFn: fetchPosts });
+    const query = useQuery({
+        queryKey: ['getPosts'], queryFn: async () => {
+            const response = await axios.get(postsAPI)
+            return response.data
+        }
+    });
     const posts = query.data || []
 
     let newPostId = posts[posts.length - 1]?.id * 1 + 1
 
     const mutation = useMutation({
-        mutationKey: ['updatePosts'], mutationFn: ({ type, id, newPost }: { type: string, id: any, newPost: any }) => {
-            return Promise.resolve(updateMethods(type, id, newPost))
+        mutationKey: ['updatePosts'], mutationFn: async ({ method, id, newPost }: { method: string, id: any, newPost: any }) => {
+            switch (method.trim()) {
+                case 'create':
+                    return axios.post(postsAPI, newPost);
+                case 'update':
+                    return axios.patch(`${postsAPI}/${id}`, newPost)
+                case 'delete':
+                    return axios.delete(`${postsAPI}/${id}`)
+            }
         }
         , onSuccess: () => {
             alert('Successfully updated')
@@ -47,16 +60,6 @@ const PostList: React.FC = () => {
         }
     })
 
-    const updateMethods = (type: string, id: any, newPost: any) => {
-        switch (type.trim()) {
-            case 'create':
-                return axios.post(postsAPI, newPost);
-            case 'update':
-                return axios.patch(`${postsAPI}/${id}`, newPost)
-            case 'delete':
-                return axios.delete(`${postsAPI}/${id}`)
-        }
-    }
     if (query.error) { return <h2 style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>Request Failed</h2> }
     if (query.isLoading) { return <h2 style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>Loading Posts...</h2> }
 
@@ -65,7 +68,7 @@ const PostList: React.FC = () => {
     //#region CRUD functionality
     const handleCreatePost = () => {
         mutation.mutate({
-            type: "create",
+            method: "create",
             id: '',
             newPost: {
                 "id": newPostId + '',
@@ -79,7 +82,7 @@ const PostList: React.FC = () => {
 
     const handleUpdatePost = () => {
         mutation.mutate({
-            type: "update",
+            method: "update",
             id: postId.textContent.trim(),
             newPost: {
                 "title": titleInput.value,
@@ -92,7 +95,7 @@ const PostList: React.FC = () => {
     const handleDeletePost = (id: any) => {
         mutation.mutate(
             {
-                type: "delete",
+                method: "delete",
                 id: id,
                 newPost: ''
             })
